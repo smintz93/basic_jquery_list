@@ -16,14 +16,12 @@ $('.add-item').on("click", (e) => {
 	  	$(".item-input").val("");
   	}
 
-  	
 })
 
 $('.shopping-list').on("click", '.item-remove', (e) => {
 	$(e.currentTarget).parent().remove();
 })
 
-$('.shopping-list').on("click", 'item-check', (e) => {
-	  $(event.currentTarget).toggleClass('complete');
-})
-
+$(".shopping-list").on("click", '.item-check', (e) => {
+      $(e.currentTarget).toggleClass('complete');
+  });
