@@ -1,13 +1,19 @@
-$(".shopping-list").append("<li class='item'</li>")
-
-$(".item").remove()
 
 
-// on click 
 
 $('.add-item').on("click", (e) => {
 	console.log('There has been a click')
-	$("<p>").addClass("test-class").text("new text when button is hit").appendTo($("body"))
+	e.preventDefault();
+    const listItem = $(".item-input").val();
+	const itemHtml = "<li><span class='item-check'></span><span class='item-text'>" + listItem + "</span><span class='item-remove'></span></li>";
+  	$(".shopping-list").prepend(itemHtml);
+  	$(".item-input").val("");
 })
 
+$('.shopping-list').on("click", '.item-remove', (e) => {
+	$(e.currentTarget).parent().remove();
+})
 
+$('.shopping-list').on("click", 'item-check', (e) => {
+	  $(event.currentTarget).toggleClass('complete');
+})
